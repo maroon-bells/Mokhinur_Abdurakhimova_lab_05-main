@@ -3,7 +3,8 @@
 **Course:** Data Exploration and Extraction  
 **Programme:** MSc Data Science  
 **Lab:** 05  
-**Required Python version:** 3.12  
+**Course:** Data Exploration and Extraction 
+**Done by Mokhinur Abdurakhimova** 
 **Status:** Implementation, analysis outputs, and report included
 
 ## Project overview
