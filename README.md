@@ -1,3 +1,4 @@
+<img width="301" height="187" alt="Screenshot 2026-11-27 at 12 16 26 AM" src="https://github.com/user-attachments/assets/b88041e6-4055-4b4d-9cfb-a6de9771b92a" />
 # Lab 05 — From Books to Auditable Text Evidence
 
 **Course:** Data Exploration and Extraction  
@@ -70,7 +71,7 @@ A period count is not a sentence count. Literal name mentions do not establish a
 
 This lab specifies **Python 3.12**. The project was configured locally in PyCharm with a Python 3.12 interpreter.
 
-![PyCharm showing the Python 3.12 interpreter](docs/images/python-3.12-interpreter.png)
+![PyCharm showing the Python 3.12 interpreter]()
 
 *Interpreter evidence: add the screenshot to `docs/images/python-3.12-interpreter.png` so it appears above on GitHub.*
 
