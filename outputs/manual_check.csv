@@ -1,0 +1,5 @@
+book_id,chapter,name,manual_expected,computed,match
+journey,1,Mira,4,4,True
+journey,1,Asad,1,1,True
+journey,1,Hajjāj,1,1,True
+journey,1,Nasr,1,1,True

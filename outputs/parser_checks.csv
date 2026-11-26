@@ -1,0 +1,3 @@
+case,exception_type,message
+missing end marker,ValueError,require exactly one ordered full-line START and END marker
+duplicated/missing chapter,ValueError,"chapter sequence mismatch: expected ['I', 'II', 'III', 'IV'], detected ['I', 'II', 'II', 'IV']"

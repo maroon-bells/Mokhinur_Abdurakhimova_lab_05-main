@@ -1,0 +1,95 @@
+{
+  "assignment": "lab-05",
+  "total_points": 100,
+  "groups": {
+    "implementation": 50,
+    "reasoning": 30,
+    "instructor": 20
+  },
+  "criteria": [
+    {
+      "id": "L5-I1",
+      "category": "implementation",
+      "points": 20,
+      "tasks": [
+        "T2"
+      ],
+      "description": "Validated two-layout extraction with correct exclusions and meaningful failures.",
+      "evidence": "Validated two-layout extraction with correct exclusions and meaningful failures."
+    },
+    {
+      "id": "L5-I2",
+      "category": "implementation",
+      "points": 10,
+      "tasks": [
+        "T2"
+      ],
+      "description": "Unicode-preserving cleanup and auditable raw/clean chapter records.",
+      "evidence": "Unicode-preserving cleanup and auditable raw/clean chapter records."
+    },
+    {
+      "id": "L5-I3",
+      "category": "implementation",
+      "points": 20,
+      "tasks": [
+        "T3"
+      ],
+      "description": "General literal-name matrix, correct word/count metadata, cumulative sums and weighted book rates.",
+      "evidence": "General literal-name matrix, correct word/count metadata, cumulative sums and weighted book rates."
+    },
+    {
+      "id": "L5-R1",
+      "category": "reasoning",
+      "points": 10,
+      "tasks": [
+        "T1",
+        "T2"
+      ],
+      "description": "Boundary evidence, hashes, manual check and interpretation of malformed structures.",
+      "evidence": "Boundary evidence, hashes, manual check and interpretation of malformed structures."
+    },
+    {
+      "id": "L5-R2",
+      "category": "reasoning",
+      "points": 10,
+      "tasks": [
+        "T3"
+      ],
+      "description": "Correct denominator argument and justified comparison of counts with normalized rates.",
+      "evidence": "Correct denominator argument and justified comparison of counts with normalized rates."
+    },
+    {
+      "id": "L5-R3",
+      "category": "reasoning",
+      "points": 10,
+      "tasks": [
+        "T4"
+      ],
+      "description": "Three readable figures with captions and defensible interpretation/limits.",
+      "evidence": "Three readable figures with captions and defensible interpretation/limits."
+    },
+    {
+      "id": "L5-H1",
+      "category": "instructor",
+      "points": 10,
+      "tasks": [
+        "T5"
+      ],
+      "description": "Fresh reproducible notebook, saved tables, clear report and completed disclosure.",
+      "evidence": "Fresh reproducible notebook, saved tables, clear report and completed disclosure."
+    },
+    {
+      "id": "L5-H2",
+      "category": "instructor",
+      "points": 10,
+      "tasks": [
+        "T2",
+        "T3",
+        "T4"
+      ],
+      "description": "Explain an unseen boundary or spelling change and distinguish mentions from historical evidence.",
+      "evidence": "Explain an unseen boundary or spelling change and distinguish mentions from historical evidence."
+    }
+  ],
+  "scoring_policy": "Public tests provide implementation evidence. Do not convert test-pass percentages directly to grades. Instructor assigns final points. Assess meaning and evidence; do not penalize minor grammar errors when meaning is clear."
+}

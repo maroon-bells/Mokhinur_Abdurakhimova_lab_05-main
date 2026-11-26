@@ -1,0 +1,11 @@
+Python: 3.13.5
+NumPy: 2.3.5
+pandas: 2.2.3
+Matplotlib: 3.10.8
+
+Reproduction commands (from lab root):
+python -m pip install -r requirements.txt
+python -m pip install jupyterlab ipykernel
+python -m compileall -q src tests
+python -m unittest discover -s tests -p 'test_public.py' -v
+python -m jupyter nbconvert --to notebook --execute --inplace notebooks/lab.ipynb

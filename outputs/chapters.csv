@@ -1,0 +1,26 @@
+book_id,chapter,roman,title,raw_text,clean_text
+journey,1,I,RIVER CROSSING,"Mira kept the notebook. Asad counted three carts at the bridge.
+Mira wrote that Nasr arrived after noon. Dr. Karim checked the time.
+The note says _Mira_ twice: Mira. Mirabel is a different name.
+Haj_j_āj sent a message.[1] This is a fictional spelling exercise.",Mira kept the notebook. Asad counted three carts at the bridge. Mira wrote that Nasr arrived after noon. Dr. Karim checked the time. The note says Mira twice: Mira. Mirabel is a different name. Hajjāj sent a message. This is a fictional spelling exercise.
+journey,2,II,MARKET RECORD,"Asad and Mira visited the market. Asad recorded grain in sacks.
+Nasr asked Asad to repeat the count. Dr. Karim used the mark 2.5.
+Hajjāj asked about the missing receipt. Mira did not infer demand from a queue.",Asad and Mira visited the market. Asad recorded grain in sacks. Nasr asked Asad to repeat the count. Dr. Karim used the mark 2.5. Hajjāj asked about the missing receipt. Mira did not infer demand from a queue.
+journey,3,III,MOUNTAIN STATION,"Nasr reached the station first. Nasr checked the sealed register.
+Asad read it with Hajjāj. A~sad is a markup variant in this teaching edition.
+The party met no Mira that morning; the written name still counts once.",Nasr reached the station first. Nasr checked the sealed register. Asad read it with Hajjāj. Asad is a markup variant in this teaching edition. The party met no Mira that morning; the written name still counts once.
+journey,4,IV,RETURN JOURNEY,"Mira returned with Asad. Hajjāj reviewed the figures.
+Nasr compared the register with an earlier note by Mira.
+Dr. Karim warned that a written mention does not establish a person's presence.",Mira returned with Asad. Hajjāj reviewed the figures. Nasr compared the register with an earlier note by Mira. Dr. Karim warned that a written mention does not establish a person's presence.
+survey,1,I,INTRODUCTION,"Mira catalogued the archive. Hajjāj inspected its first volume.
+The label reads Haj_j_āj. Nasr is named in a later catalogue.
+The label also contains the decomposed form Hajjāj, retaining the accent.","Mira catalogued the archive. Hajjāj inspected its first volume. The label reads Hajjāj. Nasr is named in a later catalogue. The label also contains the decomposed form Hajjāj, retaining the accent."
+survey,2,II,THE RIVER ARCHIVE,"Asad signed a river register. Asad asked Nasr to check a number.
+Hajjāj appears in a copied note. Mira appears in its heading.
+Dr. Karim wrote 3.5 beside an abbreviation. Periods are not sentences.",Asad signed a river register. Asad asked Nasr to check a number. Hajjāj appears in a copied note. Mira appears in its heading. Dr. Karim wrote 3.5 beside an abbreviation. Periods are not sentences.
+survey,3,III,THE MARKET ARCHIVE,"Nasr checked another volume. Nasr found a reference to Hajjāj.
+Mira compared the handwriting. Mirabel was listed separately.
+Asad copied a line about Mira. A~sad is the same literal name after cleanup.",Nasr checked another volume. Nasr found a reference to Hajjāj. Mira compared the handwriting. Mirabel was listed separately. Asad copied a line about Mira. Asad is the same literal name after cleanup.
+survey,4,IV,THE LAST REGISTER,"Hajjāj and Nasr completed the inventory. Nasr signed the final page.
+Mira thanked Asad. The surviving document names Hajjāj once more.
+The account contains no reliable count of actual journeys by any named person.",Hajjāj and Nasr completed the inventory. Nasr signed the final page. Mira thanked Asad. The surviving document names Hajjāj once more. The account contains no reliable count of actual journeys by any named person.
