@@ -1,56 +1,175 @@
-# Lab 05 — From books to auditable text evidence
+# Lab 05 — From Books to Auditable Text Evidence
 
-**Course:** Data Exploration and Extraction, MSc Data Science  
-**Marks:** 100  
-**Python:** 3.12  
-**Estimated work:** 3–4 hours
+**Course:** Data Exploration and Extraction  
+**Programme:** MSc Data Science  
+**Lab:** 05  
+**Required Python version:** 3.12  
+**Status:** Implementation, analysis outputs, and report included
 
-## Your goal
+## Project overview
 
-Turn two differently formatted field reports into a validated chapter dataset. Compare literal name mentions while controlling for chapter length. Preserve the source text and show exactly what the parser retained. This lab extends `Lecture book_read`; it assesses text structure and interpretation rather than repeating the statistics in previous labs.
+This project turns two differently formatted fictional field reports into a validated chapter-level dataset. It extracts only the intended narrative sections, preserves an auditable copy of the retained source text, cleans typographic markup, counts four literal name mentions, and compares counts while accounting for chapter length.
 
-Both supplied reports are short, fictional teaching texts. They contain misleading front-matter mentions, endnotes, markup, Unicode accents, and names inside longer words. Internet access is not required.
+The two source files are `data/journey.txt` and `data/survey.txt`. Both are fictional teaching texts. They deliberately contain front-matter mentions, endnotes, bibliography material, inline footnote references, Unicode accents, and names embedded in longer words. These features make it important to define and validate the source boundaries before counting.
 
-## Before you start
+## Lab objectives and tasks
 
-Read `FUNCTION_GUIDE.md` for exact API contracts and `SUBMISSION.md` for setup. Implement functions in `src/solution.py`. Use `notebooks/lab.ipynb` to run the analysis and produce results. Write all explanations and captions once, in the existing `REPORT.md`. The notebook contains computational scaffolding; do not duplicate the report there. Complete the separate administrative disclosure in `AI_USE.md`.
+### T1 — Inspect and document source boundaries
 
-## T1 — Inspect and document the source boundaries
+- Read the provenance notes and inspect both original UTF-8 source files.
+- Compute byte-level SHA-256 hashes and record file metadata.
+- Identify examples of front matter, endnotes, bibliography text, and inline footnote markers.
+- Preserve the original files and their line breaks.
 
-1. Read `data/PROVENANCE.md` and both raw UTF-8 files. Compute their byte-level SHA-256 hashes.
-2. Produce `outputs/source_audit.csv` with file, layout, byte_count, sha256, and expected_chapters.
-3. Identify examples of a cover/front-matter mention, an endnote mention, a bibliography mention, and an inline footnote marker. Store the examples with their file names in `outputs/boundary_examples.csv`.
-4. Keep raw files unchanged. Preserve line breaks until chapter extraction is complete.
+**Outputs:** `outputs/source_audit.csv`, `outputs/boundary_examples.csv`
 
-## T2 — Extract and clean chapters
+### T2 — Extract and clean chapters
 
-1. Implement `extract_chapters` for both documented layouts. Validate the exact Roman-number sequence I–IV; a parser must fail clearly when a chapter is lost or duplicated.
-2. Implement `clean_text` without removing accents or punctuation.
-3. Save one row per retained chapter to `outputs/chapters.csv`: book_id, chapter, roman, title, raw_text, clean_text.
-4. Demonstrate rejection of one missing-marker case and one duplicated/missing-chapter case in the notebook. Record observed exception types/messages in `outputs/parser_checks.csv`.
-5. Save two before/after excerpt pairs showing the cleanup operation in `outputs/cleaning_examples.csv`. Include the raw markup spelling and its retained accented form.
+- Extract the four expected chapters (`I`–`IV`) from both documented layouts.
+- Reject missing, duplicated, or unexpected chapter markers and invalid source boundaries.
+- Keep raw retained prose separate from cleaned text.
+- Remove markup delimiters and inline numeric footnote references, normalize Unicode to NFC, and collapse whitespace without removing accents or punctuation.
+- Record parser rejection checks and before/after cleaning examples.
 
-## T3 — Count names and compare rates
+**Outputs:** `outputs/chapters.csv`, `outputs/parser_checks.csv`, `outputs/cleaning_examples.csv`
 
-1. Implement `count_names` and `summarize_chapters` for the four names Mira, Asad, Hajjāj, Nasr.
-2. Save the long-form chapter/name summary to `outputs/chapter_summary.csv` using the documented columns. Verify that Mirabel contributes zero matches to Mira.
-3. Independently check the four counts in journey Chapter I by reading the retained text. Save expected/manual and computed counts in `outputs/manual_check.csv`.
-4. Build a chapter-by-name NumPy matrix for each book. Use NumPy cumulative sums along the chapter axis, then save `outputs/cumulative_mentions.csv` with book_id, chapter, name, cumulative_mentions. Confirm each final cumulative count equals that name's sum across chapters.
-5. Save `outputs/book_summary.csv` with book_id, name, mentions, word_count, and mentions_per_1000_words. Count each chapter's words only once when forming a book denominator; the long summary repeats chapter metadata for each name. A book rate is total mentions / total words × 1,000, not the unweighted mean of chapter rates.
-6. Rank names within each book by total mentions and compare the raw and normalized comparisons. Do not add distinct book chapter numbers into one timeline.
+### T3 — Count names and compare rates
 
-## T4 — Visualize the evidence
+The analysis tracks four literal names: **Mira, Asad, Hajjāj, and Nasr**.
 
-Create three Matplotlib figures in `outputs/`:
+- Count case-insensitive literal mentions using Unicode word boundaries.
+- Check that `Mirabel` is not counted as `Mira`.
+- Independently verify the four counts in Journey Chapter I.
+- Build a chapter-by-name NumPy matrix for each book and calculate cumulative mentions along the chapter axis.
+- Calculate book-level rates using total mentions divided by total book words, multiplied by 1,000. Each chapter contributes to the book word denominator only once.
+- Compare raw mention totals and length-normalized rates.
 
-- `cumulative_mentions.png`: a separate panel for each book, consistent name colors, integer chapter ticks.
-- `chapter_rates.png`: chapter-level mentions per 1,000 words for both books; label the denominator and distinguish books.
-- `length_vs_periods.png`: chapter word count versus period count, distinguished by book and labeled chapter.
+**Outputs:** `outputs/chapter_summary.csv`, `outputs/manual_check.csv`, `outputs/cumulative_mentions.csv`, `outputs/book_summary.csv`
 
-Use readable labels, units, legends, and stable plotting order. Refer to the saved tables rather than retyping all their numbers. A period count is not a sentence count. Name mentions are not proof of presence, importance, positive sentiment, or historical events.
+### T4 — Visualize the evidence
 
-## T5 — Reproduce and interpret
+Three Matplotlib figures show:
 
-Complete `REPORT.md` in 200–300 words, excluding tables and captions. Its prompts are the only written questions to answer. Run the public tests and restart/run the notebook from top to bottom. Save `outputs/environment.txt` with Python/package versions and the exact reproduction commands.
+1. Cumulative mentions by chapter, with a separate panel for each book.
+2. Chapter-level mentions per 1,000 words, with books distinguished.
+3. Chapter word count versus period count, with chapters labeled.
 
-See `RUBRIC.md` for assessment. Passing public tests alone does not establish correct extraction from the supplied files or justify the interpretation.
+**Outputs:** `outputs/cumulative_mentions.png`, `outputs/chapter_rates.png`, `outputs/length_vs_periods.png`
+
+A period count is not a sentence count. Literal name mentions do not establish a person's presence, importance, sentiment, or historical events.
+
+### T5 — Reproduce and interpret
+
+- Explain extraction, cleaning, measurement choices, findings, limitations, and reproduction in `REPORT.md`.
+- Record assistance and independent checks in `AI_USE.md`.
+- Run the public tests and execute the notebook from top to bottom.
+- Record Python/package versions and reproduction commands in `outputs/environment.txt`.
+
+## Python version and environment
+
+This lab specifies **Python 3.12**. The project was configured locally in PyCharm with a Python 3.12 interpreter.
+
+![PyCharm showing the Python 3.12 interpreter](docs/images/python-3.12-interpreter.png)
+
+*Interpreter evidence: add the screenshot to `docs/images/python-3.12-interpreter.png` so it appears above on GitHub.*
+
+> **Reproducibility note:** The currently included `outputs/environment.txt` records an earlier run under Python 3.13.5. A screenshot of the selected Python 3.12 interpreter confirms the IDE configuration, but does not by itself prove that the notebook and tests were rerun under Python 3.12. After selecting the Python 3.12 environment, rerun the tests and notebook, then update `outputs/environment.txt` with the actual versions from that run.
+
+### Create an environment with Python 3.12
+
+From the project root, a standard virtual environment can be created with:
+
+```bash
+python3.12 -m venv .venv
+source .venv/bin/activate
+python --version
+```
+
+If you use Conda, an alternative is:
+
+```bash
+conda create -n lab05 python=3.12 pip -y
+conda activate lab05
+python --version
+```
+
+Install the project dependencies:
+
+```bash
+python -m pip install -r requirements.txt
+python -m pip install jupyterlab ipykernel
+```
+
+## Run the analysis and tests
+
+Run these commands from the directory containing this README:
+
+```bash
+# Check the Python version
+python --version
+
+# Compile source and test files
+python -m compileall -q src tests
+
+# Run the public tests
+python -m unittest discover -s tests -p 'test_public.py' -v
+
+# Execute the notebook from top to bottom
+python -m jupyter nbconvert --to notebook --execute --inplace notebooks/lab.ipynb
+```
+
+The notebook reads the supplied source data, applies the functions in `src/solution.py`, and generates the result tables and figures under `outputs/`.
+
+## Repository structure
+
+```text
+lab_05-main/
+├── data/
+│   ├── PROVENANCE.md
+│   ├── journey.txt
+│   └── survey.txt
+├── docs/
+│   └── images/
+│       └── python-3.12-interpreter.png
+├── notebooks/
+│   └── lab.ipynb
+├── outputs/
+│   ├── boundary_examples.csv
+│   ├── book_summary.csv
+│   ├── chapter_rates.png
+│   ├── chapter_summary.csv
+│   ├── chapters.csv
+│   ├── cleaning_examples.csv
+│   ├── cumulative_mentions.csv
+│   ├── cumulative_mentions.png
+│   ├── environment.txt
+│   ├── length_vs_periods.png
+│   ├── manual_check.csv
+│   ├── parser_checks.csv
+│   └── source_audit.csv
+├── src/
+│   └── solution.py
+├── tests/
+│   └── test_public.py
+├── AI_USE.md
+├── FUNCTION_GUIDE.md
+├── REPORT.md
+├── requirements.txt
+└── README.md
+```
+
+## Interpretation and limitations
+
+The tracked values are literal text matches, not resolved people or entities. The method does not perform alias recognition, sentiment analysis, or historical verification. Rates are descriptive comparisons normalized by the number of retained words; they do not establish significance or explain why a name appears more often.
+
+The raw source files are fictional teaching materials and should remain unchanged during the assessment. See `data/PROVENANCE.md` for source provenance and `FUNCTION_GUIDE.md` for the exact function contracts.
+
+## Submission
+
+Follow the instructor's submission instructions in `SUBMISSION.md`. The supplied instructions specify a private repository accessible to the teacher. For GitHub submission, create a `submission` branch, commit the completed work, and open a pull request to `main` titled:
+
+```text
+Lab 05 — your_github_username
+```
+
+Submit the pull request URL and the full final commit SHA through the LMS. Do not upload `.venv`, credentials, or cache files. Check the course deadline and resubmission policy before submitting.
