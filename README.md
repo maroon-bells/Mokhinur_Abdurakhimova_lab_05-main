@@ -70,10 +70,9 @@ A period count is not a sentence count. Literal name mentions do not establish a
 
 This lab specifies **Python 3.12**. The project was configured locally in PyCharm with a Python 3.12 interpreter.
 
-![PyCharm showing the Python 3.12 interpreter]()
-
 *Interpreter evidence: add the screenshot to `docs/images/python-3.12-interpreter.png` so it appears above on GitHub.*
 <center><img width="301" height="187" alt="Screenshot 2026-11-27 at 12 16 26 AM" src="https://github.com/user-attachments/assets/b88041e6-4055-4b4d-9cfb-a6de9771b92a" />
+  
 > **Reproducibility note:** The currently included `outputs/environment.txt` records an earlier run under Python 3.13.5. A screenshot of the selected Python 3.12 interpreter confirms the IDE configuration, but does not by itself prove that the notebook and tests were rerun under Python 3.12. After selecting the Python 3.12 environment, rerun the tests and notebook, then update `outputs/environment.txt` with the actual versions from that run.
 
 ### Create an environment with Python 3.12
